@@ -363,7 +363,11 @@
                             printReceiptButton.disabled = false;
                         }
                     });
-                    receiptSummary.append(receiptTitle, receiptBody, receiptStatus, printReceiptButton);
+                    const invoiceLink = document.createElement('a');
+                    invoiceLink.className = 'btn btn-sm btn-outline-primary mt-3 ms-2';
+                    invoiceLink.href = @json(route('kasir.transactions.invoice', ['transaction' => '__TRANSACTION__'])).replace('__TRANSACTION__', String(sale.id));
+                    invoiceLink.textContent = 'Unduh invoice PDF';
+                    receiptSummary.append(receiptTitle, receiptBody, receiptStatus, printReceiptButton, invoiceLink);
                     receiptSummary.hidden = false;
 
                     sale.items.forEach(item => {

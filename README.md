@@ -72,6 +72,8 @@ Admin dapat mengelola produk dan akun admin/kasir dari dashboard admin. Hanya pr
 
 Kasir dapat memilih produk aktif, mengubah jumlah barang di keranjang, memasukkan uang pembayaran, lalu checkout. Sistem memvalidasi stok dan pembayaran, mencatat transaksi beserta harga/nama barang saat transaksi, dan mengurangi stok secara atomik. Dashboard admin menampilkan ringkasan penjualan hari ini dan transaksi terbaru.
 
+Setelah checkout, kasir dapat mengunduh invoice transaksi dalam format PDF. Invoice menggunakan data produk dan nilai transaksi yang tersimpan, serta hanya dapat diunduh oleh kasir pemilik transaksi.
+
 ## Gambar produk
 
 Setelah instalasi atau pemindahan aplikasi, buat tautan file publik Laravel dengan menjalankan `php artisan storage:link`. Gambar produk tersimpan di `storage/app/public/products` dan akan diakses melalui `public/storage`. Jika file gambar tertentu hilang, katalog menampilkan placeholder.

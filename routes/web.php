@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\CashierTransactionController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\KasirDashboardController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StrukController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -161,6 +161,7 @@ Route::get('/kasir/dashboard', KasirDashboardController::class)
 Route::middleware(['auth', 'kasir'])->prefix('kasir')->name('kasir.')->group(function () {
     Route::get('/printers', [StrukController::class, 'printers'])->name('printers');
     Route::post('/transactions/{transaction}/receipt', [StrukController::class, 'printTransaction'])->name('transactions.receipt');
+    Route::get('/transactions/{transaction}/invoice', [InvoiceController::class, 'download'])->name('transactions.invoice');
     Route::post('/transactions', [CashierTransactionController::class, 'store'])->name('transactions.store');
 });
 
