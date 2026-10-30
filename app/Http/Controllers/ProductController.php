@@ -61,7 +61,6 @@ class ProductController extends Controller
         ]);
 
         $data['is_active'] = $request->boolean('is_active');
-
         $file = $request->file('image');
         if ($file) {
             $original = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
@@ -90,8 +89,7 @@ class ProductController extends Controller
             ], 201);
         }
 
-        return redirect()->route('products.index')
-            ->with('success', 'Produk ditambahkan');
+        return redirect()->route('products.index')->with('success', 'Produk ditambahkan');
     }
 
     public function show(Product $product)
